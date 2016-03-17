@@ -1,0 +1,34 @@
+.div_filtro {
+	margin: 20px;
+	display: block;
+	float: left;
+	position: relative;
+}
+
+.div_form_pesquisa {
+	display: block;
+	float: left;
+	position: relative;
+	max-width: 1170px;
+	margin: 20px;
+
+}
+.div_pesquisa{
+	top: 100px;
+	border-style: solid;
+	border-width: 2px;
+		border-color: #808080;
+	
+}
+.btnPesquisar{
+	margin-left: 100px;
+}
+.btnLimpar{
+	margin-left: 100px;
+}
+.formLogin{
+	color: #cccccc;
+	margin-top: 9px;
+	float: right;
+}
+
