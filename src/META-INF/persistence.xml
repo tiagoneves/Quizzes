@@ -1,0 +1,46 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+     http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+
+	<persistence-unit name="modelo-quizzes" transaction-type="RESOURCE_LOCAL">
+
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+		<!-- provedor/implementacao do JPA -->
+
+		<non-jta-data-source>java:jboss/datasources/QUIZZESDS</non-jta-data-source>
+
+		<!-- entidades mapeadas -->
+		<class>br.com.quizzes.model.beans.AreaConhecimento</class>
+		<class>br.com.quizzes.model.beans.Assunto</class>
+		<class>br.com.quizzes.model.beans.Banca</class>
+		<class>br.com.quizzes.model.beans.CertoErrado</class>
+		<class>br.com.quizzes.model.beans.Discursiva</class>
+		<class>br.com.quizzes.model.beans.Instituicao</class>
+		<class>br.com.quizzes.model.beans.Materia</class>
+		<class>br.com.quizzes.model.beans.MultiplaEscolha</class>
+		<class>br.com.quizzes.model.beans.Opcao</class>
+		<class>br.com.quizzes.model.beans.Prova</class>
+		<class>br.com.quizzes.model.beans.Questao</class>
+		<class>br.com.quizzes.model.beans.Resolucao</class>
+		<class>br.com.quizzes.model.beans.ResolucaoDiscursiva</class>
+		<class>br.com.quizzes.model.beans.ResolucaoObjetiva</class>
+		<class>br.com.quizzes.model.beans.Role</class>
+		<class>br.com.quizzes.model.beans.Texto</class>
+		<class>br.com.quizzes.model.beans.Usuario</class>
+
+		<properties>
+
+			<!-- propriedades do hibernate -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.format_sql" value="true" />
+
+			<!-- atualiza o banco, gera as tabelas se for preciso -->
+			<property name="hibernate.hbm2ddl.auto" value="create" />
+
+		</properties>
+	</persistence-unit>
+</persistence>
