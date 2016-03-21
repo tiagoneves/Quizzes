@@ -55,6 +55,7 @@ public class Questao implements Serializable {
 	private List<Resolucao> resolucoes;
 	
 	@Enumerated(EnumType.STRING)
+	@Column(length=16, nullable=false)
 	private TipoQuestao tipoQuestao;
 
 	public Long getId() {

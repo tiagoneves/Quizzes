@@ -15,7 +15,7 @@ import br.com.quizzes.model.enums.Roles;
 
 @Entity
 @Table(name="ROLES")
-public class Role implements Serializable {
+public class Role implements Serializable{
 
 	/**
 	 * 
@@ -23,37 +23,27 @@ public class Role implements Serializable {
 	private static final long serialVersionUID = 7700873645970960973L;
 	
 	@Id
-	@Column(length=20, nullable=false, unique=true)
-	private String nomeUsuario;
-	
 	@Enumerated(EnumType.STRING)
-	private Roles roleName;
+	@Column(length=12, nullable=false, unique=true)
+	private Roles nome;
 	
 	@OneToMany(mappedBy="role")
-	private List<Usuario> usuarios;
+	private List<RoleUsuario> rolesUsuarios;
 
-	public String getNomeUsuario() {
-		return nomeUsuario;
+	public Roles getNome() {
+		return nome;
 	}
 
-	public void setNomeUsuario(String nomeUsuario) {
-		this.nomeUsuario = nomeUsuario;
+	public void setNome(Roles nome) {
+		this.nome = nome;
 	}
 
-	public Roles getRoleName() {
-		return roleName;
+	public List<RoleUsuario> getRolesUsuarios() {
+		return rolesUsuarios;
 	}
 
-	public void setRoleName(Roles roleName) {
-		this.roleName = roleName;
-	}
-
-	public List<Usuario> getUsuarios() {
-		return usuarios;
-	}
-
-	public void setUsuarios(List<Usuario> usuarios) {
-		this.usuarios = usuarios;
+	public void setRolesUsuarios(List<RoleUsuario> rolesUsuarios) {
+		this.rolesUsuarios = rolesUsuarios;
 	}
 	
 	

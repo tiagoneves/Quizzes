@@ -9,8 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -26,23 +26,20 @@ public class Usuario implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(length=20, nullable=false, unique=true, insertable=false, updatable=false)
-	private String email;
-	
 	@Column(length=50, nullable=false)
 	private String nome;
 	
 	@Column(length=20, nullable=false)
 	private String senha;
 	
-	@ManyToOne
-	@JoinColumn(name="email",
-			referencedColumnName="nomeUsuario")
-	private Role role;
+	@OneToOne
+	@JoinColumn(name="email", 
+		referencedColumnName="nomeusuario")
+	private RoleUsuario roleUsuario;
 		
 	@OneToMany(mappedBy="usuario")
 	private List<Resolucao> resolucoes;
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -63,16 +60,16 @@ public class Usuario implements Serializable {
 		return senha;
 	}
 
+	public RoleUsuario getRoleUsuario() {
+		return roleUsuario;
+	}
+
+	public void setRoleUsuario(RoleUsuario roleUsuario) {
+		this.roleUsuario = roleUsuario;
+	}
+
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}
-
-	public Role getRole() {
-		return role;
-	}
-
-	public void setRole(Role role) {
-		this.role = role;
 	}
 
 	public List<Resolucao> getResolucoes() {
@@ -82,15 +79,6 @@ public class Usuario implements Serializable {
 	public void setResolucoes(List<Resolucao> resolucoes) {
 		this.resolucoes = resolucoes;
 	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
 	
 
 }
